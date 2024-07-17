@@ -1,0 +1,460 @@
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SISTEMA DE VENDAS - CAIXA</title>
+    <link rel="stylesheet" href="CAIXA.CSS">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Carter+One&display=swap');
+
+        @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
+        #ta {
+            height: 20px;
+            position: absolute;
+            border-collapse: collapse;
+
+        }
+
+        #til {
+            text-align: center;
+            padding-left: 15px;
+            height: 20px;
+            font-family: "Archivo black";
+            font-size: 15px;
+            border: solid 1px #0D2C3C;
+            color: #23343c;
+            padding: 10px;
+        }
+
+        #ta,
+        #lit {
+
+            text-align: center;
+            height: 20px;
+            font-family: "Archivo black";
+            font-size: 12px;
+            border: solid 1px #0D2C3C;
+            color: hsl(199, 26%, 19%);
+        }
+
+        button.new {
+            margin-top: -55px;
+            transition: 500ms;
+            color: #6aa6c7;
+            background-color: #03344d;
+            margin-left: -45px;
+            height: 50px;
+            width: 60px;
+            position: relative;
+            border: 1px solid #16445b;
+            cursor: pointer;
+            color: #ffffff;
+            padding: 5px;
+            background-color: #0D2C3C;
+            font-family: "Carter one";
+            font-size: 15px;
+        }
+
+        button.new:hover {
+            color: #6aa6c7;
+            background-color: #03344d;
+        }
+
+        button.vermelho {
+            height: 30px;
+            margin-left: 5px;
+            position: relative;
+            background-color: #ff0000;
+            color: #ff9999;
+            border: 1px solid #4e0808;
+            cursor: pointer;
+            font-family: "Carter one";
+            font-size: 15px;
+            width: 60px;
+        }
+
+        button.vermelho:hover {
+            background-color: #8e0000;
+            color: #ff7676;
+            transition: 500ms;
+        }
+
+
+        button.azul {
+            height: 30px;
+            margin-left: 5px;
+            width: 60px;
+            position: relative;
+            border: 1px solid #002a60;
+            cursor: pointer;
+            color: #153b4d;
+            background-color: #2ae2f6;
+            font-family: "Carter one";
+            font-size: 15px;
+        }
+
+        button.azul:hover {
+            background-color: #10455d;
+            color: #8dd1f3;
+            transition: 500ms;
+        }
+
+        #CODE {
+            border: none;
+        }
+
+        #btn {
+            width: 130px;
+            position: relative;
+            font-family: "Carter one";
+            margin-top: 10px;
+            border: 2px solid #0D2C3C;
+            margin-left: px;
+            color: #ffffff;
+            background-color: #0a3144;
+            padding: 5px;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+
+        #btn:hover {
+            color: #76c8ff;
+            background-color: #147080;
+        }
+
+        code {
+            position: absolute;
+            font-size: 15px;
+            font-weight: bolder;
+            margin-left: 60px;
+            margin-top: 6px;
+        }
+
+        hr {
+            display: grid;
+            place-items: center;
+            width: 220px;
+            margin-left: 10px;
+        }
+
+        #center {
+            display: grid;
+            place-items: top;
+            margin-left: -9px;
+            margin-top: 10px;
+            border: 2px solid #123b4e;
+            padding: 20px;
+            position: relative;
+            background-color: #ffffff;
+            height: 80%;
+            width: 90%;
+            overflow: scroll;
+        }
+
+        #tit {
+            font-weight: bold;
+            border-bottom: dotted;
+            height: 2px;
+            color: #092a37;
+            font-size: 8px;
+            padding: 8px;
+        }
+
+        #tab {
+            position: relative;
+            margin-left: -10px;
+            padding: 0;
+        }
+
+        #tit,
+        #tit2 {
+            color: #04262a;
+            padding: 5px;
+            text-align: center;
+        }
+
+        #tit2 {
+            font-size: 6px;
+            font-weight: bold;
+        }
+
+        #COPY-2 {
+            height: 30px;
+            margin-left: -80px;
+            width: 150px;
+            position: absolute;
+            border: 1px solid #002a60;
+            cursor: pointer;
+            color: #153b4d;
+            background-color: #2ae2f6;
+            font-family: "Carter one";
+            font-size: 15px;
+        }
+
+        hr {
+            margin-top: 40px;
+            margin-left: -5px;
+        }
+
+        #COPY-2:hover {
+            background-color: #10455d;
+            color: #8dd1f3;
+            transition: 500ms;
+        }
+    </style>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.6/JsBarcode.all.min.js"
+        integrity="sha512-k2wo/BkbloaRU7gc/RkCekHr4IOVe10kYxJ/Q8dRPl7u3YshAQmg3WfZtIcseEk+nGBdK03fHBeLgXTxRmWCLQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <header class="header-nav">
+        <div class="navbar">
+
+            <div class="nav-container">
+
+                <input class="checkbox" type="checkbox" name="" id="" />
+                <div class="hamburger-lines">
+                    <span class="line line1"></span>
+                    <span class="line line2"></span>
+                    <span class="line line3"></span>
+                </div>
+
+                <div class="logo">
+                    <h5>SISTEMA DE VENDAS</h5>
+
+                    <div class="CARD-PESQUISA">
+                        <div class="EL-1"></div>
+                        <div class="EL-2"></div>
+                        <div class="EL-3"><a href="##" class="icon"><img id="SEARCH"
+                                    src="IMAGENS/SEARCH-removebg-preview.png" alt=""></a></div>
+                        <div class="EL-4"></div>
+                        <div class="EL-5"></div>
+                        <div class="EL-6"><img id="MIC" src="IMAGENS/MIC-removebg-preview.png" alt=""></div>
+                        <input placeholder="Pesquisar Compra..." type="search" id="searchbar">
+                        <marquee>SEÇÃO DO CAIXA</marquee>
+                    </div>
+
+                </div>
+
+                <div class="menu-items">
+
+                    <li><a href="INICIO.HTML">VOLTAR</a></li>
+                    <li><a href="#">SOBRE</a></li>
+                    <li><a href="#">PROJETOS</a></li>
+                    <li><a href="#">CONTATO</a></li>
+                    <li><a href="#">CONFIGURAÇÕES</a></li>
+
+                </div>
+
+            </div>
+
+        </div><!--navbar-->
+
+        <main>
+            <div class="SEÇÕES">
+
+
+                <div class="cards-2">
+                    <div id="PAINEL">
+                        <div class="CARD-PESQUISA-1">
+                            <div class="PIC-1"></div>
+                            <div class="PIC-2"></div>
+                            <div class="PIC-3"></div>
+                            <div class="PIC-4"></div>
+                            <div class="PIC-5"></div>
+                            <div class="PIC-6"></div>
+
+                            <h6>CARRINHO</h6>
+                            <input class="produto" id="searchbar-1" type="search" placeholder="Adicionar ao Carrinho">
+                            <div class="list">
+
+                                <div id="center">
+
+                                    <center>
+                                        <button id="COPY-2" onclick="mostrar1()">MOSTRAR</button>
+                                        <hr>
+
+
+                                    </center>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cards">
+                        <div class="card-3">
+                            <div id="listaRegistros">
+                                <table id="ta">
+                                    <thead>
+                                        <tr>
+                                            <th id="til">Nº</th>
+                                            <th id="til">PRODUTO</th>
+                                            <th id="til">MARCA</th>
+                                            <th id="til">VALOR</th>
+                                            <th id="til">ESTOQUE</th>
+                                            <th id="til">FORNECEDOR</th>
+                                            <th id="til">CÓDIGO DE BARRAS</th>
+                                            <th id="code">
+                                                <button onclick='window.print()' class='new'><img id="IMPRE"
+                                                        src="IMAGENS/4-removebg-preview.png" alt="">
+                                                </button>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="listaRegistroBody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="MAT">
+                            <div class="VALORES">
+                                <h2>SUBTOTAL</h2>
+                                <input placeholder="SUBTOTAL" type="text" id="result" /><span>R$</span>
+                            </div>
+                            <div class="CALCULO">
+                                <div id="CALC">
+                                    <select id="operators">
+                                        <option>PAGAMENTO</option>
+                                        <option value="avista">A VISTA</option>
+                                        <option value="aprazo">A PRAZO</option>
+                                        <option value="desconto">DESCONTO</option>
+                                        <option value="troco">TROCO</option>
+                                    </select><br>
+                                    <input placeholder="VALOR DO PRODUTO" type="text" id="v1" /><br /><br />
+                                    <input placeholder="VALOR DO OPERADOR" type="text" id="v2" /><br><br><br><br />
+
+                                    <button id="calcu" onclick="calc();">CALCULAR</button>
+
+                                    <script>
+
+                                        const KEY_BD2 = '@usuariosprodutos'
+
+
+
+                                        var listaRegistros = {
+                                            ultimoIdGerado: 0,
+                                            usuarios: []
+                                        }
+
+                                        var FILTRO = ''
+
+                                        function gravarBD() {
+                                            localStorage.setItem(KEY_BD2, JSON.stringify(listaRegistros))
+                                        }
+
+                                        function lerBD() {
+                                            const data = localStorage.getItem(KEY_BD2)
+                                            if (data) {
+                                                listaRegistros = JSON.parse(data)
+                                            }
+                                            desenhar()
+                                        }
+
+                                        function pesquisar(value) {
+                                            FILTRO = value;
+                                            desenhar()
+                                        }
+
+                                        function desenhar() {
+                                            const tbody = document.getElementById('listaRegistroBody')
+                                            if (tbody) {
+                                                var data = listaRegistros.usuarios;
+                                                if (FILTRO.trim()) {
+                                                    const expReg = eval(`/${FILTRO.trim().replace(/[^\d\w]+/g, '.*')}/i`)
+                                                    data = data.filter(usuario => {
+                                                        return expReg.test(usuario.number) || expReg.test(usuario.produto) || expReg.test(usuario.marca) || expReg.test(usuario.valor) || expReg.test(usuario.quantidade) || expReg.test(usuario.estoque) || expReg.test(usuario.fornecedor) || expReg.test(usuario.barcode)
+                                                    })
+                                                }
+                                                data = data
+                                                    .sort((a, b) => {
+                                                        return a.number < b.number ? -1 : 1
+                                                    })
+                                                    .map(usuario => {
+                                                        return `<tr class='produtos'>
+                    <td id='lit' class='num'>${usuario.number}</td>
+                    <td id='lit' class='pro'>${usuario.produto}</td>
+                    <td id='lit' class='mar'>${usuario.marca}</td>
+                    <td id='lit' class='val'>R$${usuario.valor}</td>
+                    <td id='lit' class='est'>${usuario.estoque} - ITENS</td>
+                    <td id='lit' class='for'>@${usuario.fornecedor}</td>
+                    <td id='lit' class='bar'>#${usuario.barcode}</td>
+                    <td>
+                        <button class='azul'>COPY</button>
+                        <button onclick='perguntarSeDeleta(${usuario.number})' class='vermelho'>DEL</button>
+                    </td>
+                </tr>`
+                                                    })
+                                                tbody.innerHTML = data.join('')
+                                            }
+                                        }
+
+                                        ///localStorage.clear()
+
+                                        function deleteUsuario(number) {
+                                            listaRegistros.usuarios = listaRegistros.usuarios.filter(usuario => {
+                                                return usuario.number != number
+                                            })
+                                            gravarBD()
+                                        }
+
+                                        function perguntarSeDeleta(number) {
+                                            if (confirm('Deseja deletar o registro de Cliente ' + number)) {
+                                                deleteUsuario(number)
+                                            }
+                                        }
+
+                                        function limparEdição() {
+                                            document.getElementById('produto').value = ''
+                                            document.getElementById('marca').value = ''
+                                            document.getElementById('valor').value = ''
+                                            document.getElementById('estoque').value = ''
+                                            document.getElementById('fornecedor').value = ''
+                                            document.getElementById('barcode').value = ''
+                                        }
+
+
+                                        function submeter(e) {
+                                            e.preventDefault()
+                                            const data = {
+                                                number: document.getElementById('number').value,
+                                                produto: document.getElementById('produto').value,
+                                                marca: document.getElementById('marca').value,
+                                                valor: document.getElementById('valor').value,
+                                                estoque: document.getElementById('estoque').value,
+                                                fornecedor: document.getElementById('fornecedor').value,
+                                                barcode: document.getElementById('barcode').value,
+                                            }
+                                            if (data.number) {
+                                                editUsuario(data.number, data.produto, data.marca, data.valor, data.estoque, data.fornecedor, data.barcode)
+                                            } else {
+                                                insertUsuario(data.produto, data.marca, data.valor, data.estoque, data.fornecedor, data.barcode)
+                                            }
+                                        }
+
+                                        window.addEventListener('load', () => {
+                                            lerBD()
+                                            document.getElementById('searchbar').addEventListener('keyup', e => {
+                                                pesquisar(e.target.value)
+                                            })
+                                        })
+
+                                    </script>
+                                    </label>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+        </main>
+        </div>
+        <script src="CAIXA.JS"></script>
+
+</body>
+
+</html>
